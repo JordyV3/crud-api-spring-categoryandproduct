@@ -17,20 +17,19 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductImpl implements ProductService {
-
     private final ProductRepository productRepository;
-
     private final CategoryService categoryService;
+
     @Override
-    public List<Product> findAllProduct() {
-        return(List<Product>) productRepository.findAll();
+    public List<Product> findAllProducts() {
+        return (List<Product>) productRepository.findAll();
     }
 
     @Override
     public Product findProductById(Long id) {
-        Product product = productRepository.findProductByIdAndDelete(id, false);
-        if (product == null){
-            throw new EntityNotFoundException("The product with id "+id+ "is not found");
+        Product product = productRepository.findProductByIdAndDeleted(id, false);
+        if(product == null){
+            throw new EntityNotFoundException("the product with id " + id + " is not found");
         }
         return product;
     }
@@ -65,3 +64,4 @@ public class ProductImpl implements ProductService {
         productRepository.save(product);
     }
 }
+

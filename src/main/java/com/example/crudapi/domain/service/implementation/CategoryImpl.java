@@ -18,7 +18,7 @@ public class CategoryImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     private void categoryExist(String name){
-        if (categoryRepository.existsByName(name)){
+        if(categoryRepository.existsByName(name)){
             throw new DuplicateKeyException("the name of category is already registered");
         }
     }
@@ -30,9 +30,9 @@ public class CategoryImpl implements CategoryService {
 
     @Override
     public Category findCategoryById(Short id) {
-        Category category = categoryRepository.findCategoriesBy(id);
-        if (category == null){
-            throw new EntityNotFoundException("The category with id "+id+ "is not found");
+        Category category = categoryRepository.findCategoryById(id);
+        if(category == null){
+            throw new EntityNotFoundException("the category with id " + id + " is not found");
         }
         return category;
     }

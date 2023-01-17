@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepository extends CrudRepository<Category, Short> {
-    Category findCategoriesBy(short id);
+    Category findCategoryById(Short id);
     Boolean existsByName(String name);
 }

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductService {
-    List<Product> findAllProduct();
+    List<Product> findAllProducts();
     Product findProductById(Long id);
     Product createProduct(ProductDto productDto);
     Product updateProduct(ProductDto productDto);

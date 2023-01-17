@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-    Product findProductByIdAndDelete(Long id, Boolean delete);
-
+    Product findProductByIdAndDeleted(Long id, Boolean deleted);
 }
